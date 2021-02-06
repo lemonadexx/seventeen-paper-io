@@ -103,7 +103,7 @@ $(".toggle").on("click", () => {
 module.exports={
 	"dev": true,
 	"port": 8080,
-	"bots": 2,
+	"bots": 7,
 	"consts": {
 		"GRID_COUNT": 250,
 		"CELL_WIDTH": 40,
@@ -112,8 +112,8 @@ module.exports={
 		"MAX_PLAYERS":1500,
 		"NEW_PLAYER_LAG": 60,
 		"LEADERBOARD_NUM": 7,
-		"PREFIXES": "",
-		"NAMES": "PLEDIS BIGHIT"
+		"PREFIXES": "PLEDIS BIGHIT",
+		"NAMES": "MANAGER CEO MARKETING COMPANY"
 	}
 }
 
@@ -4310,7 +4310,6 @@ module.exports = function(opts) {
   // XDomainRequest has a flow of not sending cookie, therefore it should be disabled as a default.
   // https://github.com/Automattic/engine.io-client/pull/217
   const enablesXDR = opts.enablesXDR;
-  //
 
   // XMLHttpRequest can be disabled on IE
   try {
@@ -19064,7 +19063,6 @@ function paintGridBorder(ctx) {
 function paintGrid(ctx) {
 	//Paint background
 	ctx.fillStyle = "#292929";
-	//
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
@@ -19177,7 +19175,7 @@ function paintUIBar(ctx) {
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
 		ctx.fillStyle = player.shadowColor.rgbString();
 		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "#f5d351";
+		ctx.fillStyle = "#f5c719";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
@@ -19475,12 +19473,13 @@ function paintGrid(ctx) {
 
 function paintUIBar(ctx) {
 	//UI Bar background
-	ctx.fillStyle = "#f5d351";
+	ctx.fillStyle = "#cbad14";
 	ctx.fillRect(0, 0, canvasWidth, BAR_HEIGHT);
 
 	let barOffset;
 	ctx.fillStyle = "white";
-	ctx.font = "24px Changa";
+	ctx.font = "24px Changa"; 
+  //
 	barOffset = (user && user.name) ? (ctx.measureText(user.name).width + 20) : 0;
 	ctx.fillText(user ? user.name : "", 5, consts.CELL_WIDTH - 5);
 
@@ -19546,7 +19545,7 @@ function paintUIBar(ctx) {
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
 		ctx.fillStyle = player.shadowColor.rgbString();
 		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "#f5d351";
+		ctx.fillStyle = "black";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
