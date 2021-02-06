@@ -1,0 +1,16 @@
+{
+	"dev": true,
+	"port": 8080,
+	"bots": 2,
+	"consts": {
+		"GRID_COUNT": 250,
+		"CELL_WIDTH": 40,
+		"SPEED": 5,
+		"BORDER_WIDTH": 40,
+		"MAX_PLAYERS":1500,
+		"NEW_PLAYER_LAG": 60,
+		"LEADERBOARD_NUM": 7,
+		"PREFIXES": "",
+		"NAMES": "PLEDIS BIGHIT"
+	}
+}

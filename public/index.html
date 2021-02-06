@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-touch-fullscreen" content="yes">
+<title>Paper.io</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="/font/css/all.min.css">
+</head>
+<body>
+<canvas id="main-ui"></canvas>
+<div id="begin">
+	<div class="center">
+		<img class="scale" src="image/world-domination-logo-5.svg">
+		<h1>Choose a nickname</h1>
+		<input id="name" autocomplete="off" placeholder="min9yu_k">
+		<button class="start yellow" disabled="disabled">Play!</button>
+		<br>
+		<br>
+		<button class="spectate green" disabled="disabled">Spectate</button>
+		<div>
+			<span id="error">Please wait... Maybe something's wrong!</span>
+			<noscript>
+				<span>Your browser does not support JavaScript!</span>
+			</noscript>
+		</div>
+		<div>
+			<br><br>
+			[CONTROLS]<br>
+			mobile: swipe up/down/left/right<br>
+			keyboard: WASD / arrow keys
+
+
+			<br><br> 
+
+			<span>ON BETA MODE</span>
+		</div>
+	</div>
+</div>
+<div id="wasted">
+	<div class="center">
+		<img class="scale" src="image/dead.jpg">
+		<button class="start orange" disabled="disabled">Play Again</button>
+		<button class="menu yellow">Main Menu</button>
+		<button class="spectate green" disabled="disabled">Spectate</button>
+	</div>
+</div>
+<button class="toggle yellow" style="padding: 20px;"><i class="fa fa-cogs fa-2x"></i></button>
+<div id="settings" class="center" style="display: none;height:50vh;width:60vw;padding: 10vw;">
+	<button class="menu yellow">Main Menu</button>
+	<button class="yellow" onclick="JavaScript:alert('Want to play a game?\nUse arrows or WSAD to control your paper block\nDon\'t hit the walls\nBite enemy tails but don\'t let them bite yours!\nCompete against other players')">Hou To Play</button>
+	<button class="yellow" onclick="JavaScript:alert('Paper.io play online\nMore! More! More territory! Take it all with new amazing game - Paper.io\nThis game concept is linked to old Xonix, which appeared in 1984. Like in any other IO game there are you and enemies willing to outwit you. But you\'ll prevail of course :) Take their terriory and destroy your enemies, but be careful, your tail is your weak point.\nThis game is very cool and has nice paper-like graphics and fluid animation. Enjoy!\nYou can play paper.io online and offline both on a mobile device and a desktop computer. Get paper.io and join the world gaming community. Manage a small board and win territory from your rivals.\nPaper.io 2 - behold the sequel to the popular game. Capture new territories and become the king of the map!\nThe more space you win the higher ranking and scores you get. You have to act and think quickly. Develop your own strategy and action plan.\nPaperio has simple rules but is very addictive in its simplicity. The competitors are also on guard. Watch out for your tail.\nThe game is very addictive and makes gamers from all over the world connect from home, from work, from campus or even the office!\nJoin the game, figure out your strategy and become the ultimate winner. Have fun!')">About</button>
+	<br><br>
+	<button class="red" onclick="JavaScript:document.getElementById('settings').style.display='none'">Exit Menu</button>
+</div>
+
+<div style="position: fixed;bottom: 10px;left: 0;background-color: #e7c30f;color: white;padding: 20px;font-size: 24px;">
+	play my other game: <a href="2048.caratzone.space" style="color: white;">SVT 2048</a>
+</div>
+
+<script src="js/bundle.js"></script>
+</body>
+</html>
