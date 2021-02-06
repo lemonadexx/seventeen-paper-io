@@ -19062,7 +19062,7 @@ function paintGridBorder(ctx) {
 
 function paintGrid(ctx) {
 	//Paint background
-	ctx.fillStyle = "rgb(0,0,0)";
+	ctx.fillStyle = "#292929";
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
@@ -19175,7 +19175,7 @@ function paintUIBar(ctx) {
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
 		ctx.fillStyle = player.shadowColor.rgbString();
 		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "#e7e7e7";
+		ctx.fillStyle = "#f5d351";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
@@ -19398,7 +19398,7 @@ function paintGridBorder(ctx) {
 
 function paintGrid(ctx) {
 	//Paint background
-	ctx.fillStyle = "rgb(0,0,0)";
+	ctx.fillStyle = "#292929";
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
@@ -19473,7 +19473,7 @@ function paintGrid(ctx) {
 
 function paintUIBar(ctx) {
 	//UI Bar background
-	ctx.fillStyle = "#24422c";
+	ctx.fillStyle = "#f5d351";
 	ctx.fillRect(0, 0, canvasWidth, BAR_HEIGHT);
 
 	let barOffset;
@@ -19544,7 +19544,7 @@ function paintUIBar(ctx) {
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
 		ctx.fillStyle = player.shadowColor.rgbString();
 		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "#e7e7e7";
+		ctx.fillStyle = "#f5d351";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
