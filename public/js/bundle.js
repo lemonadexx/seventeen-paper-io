@@ -19064,6 +19064,7 @@ function paintGridBorder(ctx) {
 function paintGrid(ctx) {
 	//Paint background
 	ctx.fillStyle = "#292929";
+	//
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
