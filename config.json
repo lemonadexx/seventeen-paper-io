@@ -1,7 +1,7 @@
 {
 	"dev": true,
 	"port": 8080,
-	"bots": 2,
+	"bots": 7,
 	"consts": {
 		"GRID_COUNT": 250,
 		"CELL_WIDTH": 40,
@@ -10,7 +10,7 @@
 		"MAX_PLAYERS":1500,
 		"NEW_PLAYER_LAG": 60,
 		"LEADERBOARD_NUM": 7,
-		"PREFIXES": "",
-		"NAMES": "PLEDIS BIGHIT"
+		"PREFIXES": "PLEDIS BIGHIT",
+		"NAMES": "MANAGER CEO MARKETING COMPANY"
 	}
 }
