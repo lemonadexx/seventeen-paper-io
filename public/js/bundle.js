@@ -4310,6 +4310,7 @@ module.exports = function(opts) {
   // XDomainRequest has a flow of not sending cookie, therefore it should be disabled as a default.
   // https://github.com/Automattic/engine.io-client/pull/217
   const enablesXDR = opts.enablesXDR;
+  //
 
   // XMLHttpRequest can be disabled on IE
   try {
