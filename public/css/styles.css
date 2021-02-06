@@ -75,7 +75,7 @@ canvas {
 }
 .scale {
 	animation: scale 5s infinite ease-in-out;
-	width: 80vw;
+	width: 50vw;
 }
 @keyframes scale {
 	0% {
