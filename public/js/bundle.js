@@ -105,11 +105,11 @@ module.exports={
 	"port": 8080,
 	"bots": 7,
 	"consts": {
-		"GRID_COUNT": 250,
-		"CELL_WIDTH": 40,
-		"SPEED": 5,
+		"GRID_COUNT": 100,
+		"CELL_WIDTH": 80,
+		"SPEED": 8,
 		"BORDER_WIDTH": 40,
-		"MAX_PLAYERS":1500,
+		"MAX_PLAYERS":120,
 		"NEW_PLAYER_LAG": 60,
 		"LEADERBOARD_NUM": 7,
 		"PREFIXES": "PLEDIS BIGHIT",
@@ -19062,7 +19062,7 @@ function paintGridBorder(ctx) {
 
 function paintGrid(ctx) {
 	//Paint background
-	ctx.fillStyle = "#292929";
+	ctx.fillStyle = "rgb(211, 225, 237)";
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
@@ -19175,7 +19175,7 @@ function paintUIBar(ctx) {
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
 		ctx.fillStyle = player.shadowColor.rgbString();
 		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "#f5c719";
+		ctx.fillStyle = "black";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
@@ -19365,7 +19365,7 @@ function updateSize() {
 	}
 	if (canvasHeight != window.innerHeight) {
 		canvasHeight = offscreenCanvas.height = canvas.height = window.innerHeight;
-		gameHeight = canvasHeight - BAR_HEIGHT;
+		gameHeight = canvasHeight /*- BAR_HEIGHT*/;
 		changed = true;
 	}
 	if (changed && user) centerOnPlayer(user, offset);
@@ -19398,7 +19398,7 @@ function paintGridBorder(ctx) {
 
 function paintGrid(ctx) {
 	//Paint background
-	ctx.fillStyle = "#292929";
+	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, consts.CELL_WIDTH * consts.GRID_COUNT, consts.CELL_WIDTH * consts.GRID_COUNT);
 	paintGridBorder(ctx);
 
@@ -19473,37 +19473,36 @@ function paintGrid(ctx) {
 
 function paintUIBar(ctx) {
 	//UI Bar background
-	ctx.fillStyle = "#cbad14";
-	ctx.fillRect(0, 0, canvasWidth, BAR_HEIGHT);
+	//ctx.fillStyle = "rgba(0,0,0,0)";
+	ctx.fillRect(10, canvasHeight-100, canvasWidth*0.4, BAR_HEIGHT);
 
 	let barOffset;
 	ctx.fillStyle = "white";
-	ctx.font = "24px Changa"; 
-  //
+	ctx.font = "24px Changa";
 	barOffset = (user && user.name) ? (ctx.measureText(user.name).width + 20) : 0;
-	ctx.fillText(user ? user.name : "", 5, consts.CELL_WIDTH - 5);
+	//ctx.fillText(user ? user.name : "", 5, consts.CELL_WIDTH - 5);
 
 	//Draw filled bar
-	ctx.fillStyle = "rgba(180, 180, 180, .3)";
-	ctx.fillRect(barOffset, 0, BAR_WIDTH, BAR_HEIGHT);
+	//ctx.fillStyle = "rgba(180, 180, 180, .3)";
+	//ctx.fillRect(barOffset, 0, BAR_WIDTH, BAR_HEIGHT);
 
 	const userPortions = portionsRolling[user.num] ? portionsRolling[user.num].lag : 0;
 	let barSize = Math.ceil((BAR_WIDTH - MIN_BAR_WIDTH) * userPortions + MIN_BAR_WIDTH);
 	ctx.fillStyle = user ? user.baseColor.rgbString() : "";
-	ctx.fillRect(barOffset, 0, barSize, consts.CELL_WIDTH);
+	//ctx.fillRect(barOffset, 0, barSize, consts.CELL_WIDTH);
 	ctx.fillStyle = user ? user.shadowColor.rgbString() : "";
-	ctx.fillRect(barOffset, consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
+	//ctx.fillRect(barOffset, consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
 
 	//TODO: dont reset kill count and zoom when we request frames.
 	//Percentage
 	ctx.fillStyle = "white";
 	ctx.font = "18px Changa";
-	ctx.fillText((userPortions * 100).toFixed(3) + "%", 5 + barOffset, consts.CELL_WIDTH - 5);
+	//ctx.fillText((userPortions * 100).toFixed(3) + "%", 5 + barOffset, consts.CELL_WIDTH - 5);
 
 	//Number of kills
 	const killsText = "Kills: " + client.kills;
 	const killsOffset = 20 + BAR_WIDTH + barOffset;
-	ctx.fillText(killsText, killsOffset, consts.CELL_WIDTH - 5);
+	//ctx.fillText(killsText, killsOffset, consts.CELL_WIDTH - 5);
 
 	//Calcuate rank
 	const sorted = [];
@@ -19536,16 +19535,16 @@ function paintUIBar(ctx) {
 		const portion = barProportionRolling[player.num].lag;
 		const nameWidth = ctx.measureText(name).width;
 		barSize = Math.ceil((BAR_WIDTH - MIN_BAR_WIDTH) * portion + MIN_BAR_WIDTH);
-		const barX = canvasWidth - barSize;
-		const barY = BAR_HEIGHT * (i + 1);
+		const barX = canvasWidth - barSize;			
+		const barY = (BAR_HEIGHT/2) * (i*2);
 		const offset = i == 0 ? 10 : 0;
-		ctx.fillStyle = "rgba(10, 10, 10, .3)";
-		ctx.fillRect(barX - 10, barY + 10 - offset, barSize + 10, BAR_HEIGHT + offset);
+		//ctx.fillStyle = "rgba(10, 10, 10, .3)";
+		//ctx.fillRect(barX - 10, barY + 10, barSize + 10, BAR_HEIGHT);
 		ctx.fillStyle = player.baseColor.rgbString();
 		ctx.fillRect(barX, barY, barSize, consts.CELL_WIDTH);
-		ctx.fillStyle = player.shadowColor.rgbString();
-		ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
-		ctx.fillStyle = "black";
+		//ctx.fillStyle = player.shadowColor.rgbString();
+		//ctx.fillRect(barX, barY + consts.CELL_WIDTH, barSize, SHADOW_OFFSET);
+		//ctx.fillStyle = "#f8f8f8";
 		ctx.fillText(name, barX - nameWidth - 15, barY + 27);
 		const percentage = (portionsRolling[player.num].lag * 100).toFixed(3) + "%";
 		ctx.fillStyle = "white";
@@ -19554,12 +19553,12 @@ function paintUIBar(ctx) {
 }
 
 function paint(ctx) {
-	ctx.fillStyle = "#e2ebf3"; //"whitesmoke";
-	ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+	//ctx.fillStyle = "#e2ebf3"; //"whitesmoke";
+	//ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
 	//Move grid to viewport as said with the offsets, below the stats
 	ctx.save();
-	ctx.translate(0, BAR_HEIGHT);
+	//ctx.translate(0, BAR_HEIGHT);
 	ctx.beginPath();
 	ctx.rect(0, 0, gameWidth, gameHeight);
 	ctx.clip();

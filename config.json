@@ -4,8 +4,8 @@
 	"bots": 7,
 	"consts": {
 		"GRID_COUNT": 100,
-		"CELL_WIDTH": 40,
-		"SPEED": 5,
+		"CELL_WIDTH": 80,
+		"SPEED": 8,
 		"BORDER_WIDTH": 40,
 		"MAX_PLAYERS":120,
 		"NEW_PLAYER_LAG": 60,

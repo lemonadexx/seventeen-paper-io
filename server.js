@@ -29,7 +29,7 @@ io.on("connection", socket => {
 			fn(true);
 			return;
 		}
-		if (data.name && data.name.length > 16) fn(false, "Nickname must be less than 16 characters.");
+		if (data.name && data.name.length > 20) fn(false, "Nickname must be less than 20 characters.");
 		else if (!game.addPlayer(socket, data.name)) fn(false, "Too many players, you're on the lobby waiting.");
 		else fn(true);
 	});
